@@ -1,11 +1,10 @@
 package ru.app.network
 
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.app.AppConstants
+import ru.app.utils.AppConstants
 
 class RetrofitInstance {
 
@@ -21,7 +20,6 @@ class RetrofitInstance {
 
             Retrofit.Builder()
                 .baseUrl(AppConstants.BASE_URL)
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()
